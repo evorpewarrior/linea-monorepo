@@ -12,11 +12,9 @@ ALU := alu/add.zkasm alu/ext alu/mod.zkasm alu/mul.zkasm
 
 BIN := bin/bin.zkasm
 
-BLAKE_2f_OSAKA := blake2f/blake2f.zkasm
+BLAKE2f := blake2f/blake2f.zkasm
 
 BLAKE2f_MODEXP_DATA  := blake2fmodexpdata
-
-BLAKE2f_MODEXP_DATA_ASM  := blake2fmodexpdata/fncall_01.zkasm
 
 # constraints used in prod for LINEA, with linea block gas limit
 BLOCKDATA := blockdata
@@ -90,6 +88,7 @@ ZKEVM_MODULES_COMMON := ${CONSTANTS} \
 		 ${TABLES} \
 		 ${ALU} \
 		 ${BIN} \
+     ${BLAKE2f} \
 		 ${BLAKE2f_MODEXP_DATA} \
 		 ${BLOCKDATA} \
 		 ${BLOCKHASH} \
@@ -120,8 +119,6 @@ ZKEVM_MODULES_COMMON := ${CONSTANTS} \
 
 ZKEVM_MODULES_OSAKA := ${ZKEVM_MODULES_COMMON} \
 		 ${CONSTANTS_OSAKA} \
-		 ${BLAKE2f_MODEXP_DATA_ASM} \
-		 ${BLAKE_2f_OSAKA} \
 		 ${HUB_OSAKA}
 
 all: zkevm_osaka.bin
